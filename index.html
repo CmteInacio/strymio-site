@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strymio</title>
+<meta name="description" content="Strymio é um aplicativo pessoal para Android e Android TV que organiza e reproduz listas M3U próprias, com guia de programação, controle parental e sincronização entre os aparelhos.">
+<link rel="icon" href="icon.png" type="image/png">
+<style>
+  :root {
+    --bg: #14142a;
+    --surface: #1e1e38;
+    --surface-2: #26264a;
+    --primary: #7b2fbe;
+    --secondary: #00c9a7;
+    --text: #f0f0f5;
+    --muted: #a0a0c0;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+  header {
+    background:
+      radial-gradient(900px 340px at 50% -120px, rgba(123, 47, 190, 0.45), transparent 70%),
+      radial-gradient(700px 300px at 85% 0, rgba(0, 201, 167, 0.18), transparent 70%);
+    padding: 64px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .brand img { width: 88px; height: 88px; }
+
+  .brand h1 {
+    font-size: 52px;
+    letter-spacing: -1px;
+    background: linear-gradient(100deg, #a45cf0, var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  header p {
+    margin: 20px auto 0;
+    max-width: 620px;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  .badges {
+    margin-top: 24px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  h2 + .sub { color: var(--muted); margin-bottom: 24px; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .card p { color: var(--muted); font-size: 15px; }
+
+  .card .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--secondary);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  ul.plain { list-style: none; color: var(--muted); }
+  ul.plain li { padding: 6px 0 6px 20px; position: relative; }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+
+  a { color: var(--secondary); }
+
+  .note {
+    background: var(--surface-2);
+    border-left: 3px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 20px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  footer img { width: 40px; vertical-align: middle; margin-bottom: 12px; }
+
+  @media (max-width: 600px) {
+    header { padding: 48px 0 36px; }
+    header p { font-size: 16px; }
+    .brand h1 { font-size: 38px; }
+    .brand img { width: 64px; height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="icon.png" alt="">
+      <h1>Strymio</h1>
+    </div>
+    <p>
+      Aplicativo pessoal para Android e Android TV que organiza e reproduz listas M3U próprias,
+      com guia de programação, controle parental e sincronização entre os aparelhos.
+    </p>
+    <div class="badges">
+      <span class="badge">Android TV</span>
+      <span class="badge">Celular Android</span>
+      <span class="badge">Uso pessoal, sem fins comerciais</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>O que é</h2>
+    <p class="sub">Um reprodutor para a sua própria lista, não um serviço de conteúdo.</p>
+    <p style="color: var(--muted)">
+      O Strymio não vende, não hospeda e não distribui canais, filmes ou séries. Quem usa informa o
+      endereço da própria lista M3U, que o aplicativo baixa e organiza para assistir na TV e no
+      celular. Todo o conteúdo vem do provedor escolhido pelo usuário.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Recursos</h2>
+    <p class="sub">O que o aplicativo faz com a lista depois de carregada.</p>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="dot"></span>TV ao vivo com guia</h3>
+        <p>Canais organizados por categoria, com o programa atual, barra de andamento, tempo
+          restante e o próximo da grade.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>Filmes e séries</h3>
+        <p>Catálogo em grade com categorias, temporadas e episódios, feito para a navegação pelo
+          controle remoto.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>Controles de reprodução</h3>
+        <p>Pausa, avanço e retrocesso, faixas de áudio e legenda, continuar de onde parou e emenda
+          automática do próximo episódio.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>Controle parental</h3>
+        <p>Senha criada na primeira execução, exigida para o conteúdo adulto, que também fica fora
+          das listas gerais e da busca.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>Sincronização</h3>
+        <p>A lista é verificada ao abrir o aplicativo e só é baixada de novo quando muda, com o
+          andamento exibido na tela.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>Guia de programação</h3>
+        <p>O guia XMLTV do provedor é recortado no servidor para as próximas horas e entregue em
+          formato compacto aos aparelhos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Privacidade</h2>
+    <p class="sub">O que o aplicativo guarda e onde.</p>
+    <ul class="plain">
+      <li>Não há cadastro, login nem conta de usuário.</li>
+      <li>Não há rastreamento, publicidade ou envio de dados de uso para terceiros.</li>
+      <li>A lista de canais, o guia, a senha do controle parental e o progresso dos filmes ficam
+        no próprio aparelho.</li>
+      <li>O servidor guarda apenas a lista informada pelo usuário e o guia de programação
+        correspondente, para que os aparelhos não precisem baixar tudo de novo.</li>
+      <li>A senha do controle parental é guardada apenas como resumo criptográfico.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Fontes de dados</h2>
+    <p class="sub">De onde vêm as informações exibidas.</p>
+    <div class="note">
+      <p style="margin-bottom: 12px">
+        Este produto usa a API do TMDB para exibir informações dos filmes e séries (sinopse, ano,
+        diretor, elenco, duração e imagens), mas não é endossado nem certificado pelo TMDB.
+      </p>
+      <p style="margin-bottom: 12px">
+        <em>This product uses the TMDB API but is not endorsed or certified by TMDB.</em>
+      </p>
+      <p>
+        Mais informações em <a href="https://www.themoviedb.org/" target="_blank"
+        rel="noopener">themoviedb.org</a>. A programação dos canais vem do guia XMLTV publicado
+        pelo provedor da lista do próprio usuário.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Contato</h2>
+    <p class="sub">Dúvidas sobre o aplicativo.</p>
+    <p style="color: var(--muted)">
+      <!-- Troque pelo endereço que você quiser divulgar -->
+      E-mail: <a href="mailto:seu-email@exemplo.com">seu-email@exemplo.com</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="icon.png" alt="">
+    <p>Strymio — projeto pessoal, sem fins comerciais.</p>
+  </div>
+</footer>
+
+</body>
+</html>
